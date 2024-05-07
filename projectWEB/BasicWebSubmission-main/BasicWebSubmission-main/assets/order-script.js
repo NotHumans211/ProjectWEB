@@ -1,0 +1,27 @@
+document.addEventListener('DOMContentLoaded', function () {
+    let menu = document.querySelector('#menu-bar');
+    let navbar = document.querySelector('.navbar');
+
+    menu.onclick = () => {
+        menu.classList.toggle('fa-times');
+        navbar.classList.toggle('active');
+    };
+
+    window.onscroll = () => {
+        menu.classList.remove('fa-times');
+        navbar.classList.remove('active');
+
+        if (window.scrollY > 60) {
+            document.querySelector('#scroll-top').classList.add('active');
+        } else {
+            document.querySelector('#scroll-top').classList.remove('active');
+        }
+    };
+
+    // Handle form submission
+    document.getElementById('order-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Redirect to home page
+        window.location.href = 'index.html#home';
+    });
+});
